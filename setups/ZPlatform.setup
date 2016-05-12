@@ -200,6 +200,10 @@
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.core.resources/encoding"
           value="UTF-8"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="description.autobuilding"
+          value="false"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -212,22 +216,6 @@
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.debug.ui/Console.lowWaterMark"
           value="800000"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="org.eclipse.jdt.core">
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.targetPlatform"
-          value="1.7"/>
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.compliance"
-          value="1.7"/>
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.source"
-          value="1.7"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1792,7 +1780,7 @@
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/sp_cleanup.make_variable_declarations_final"
-          value="false"/>
+          value="true"/>
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/sp_cleanup.never_use_blocks"
@@ -1804,7 +1792,7 @@
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/sp_cleanup.on_save_use_additional_actions"
-          value="false"/>
+          value="true"/>
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/sp_cleanup.organize_imports"
@@ -1840,7 +1828,7 @@
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/sp_cleanup.remove_trailing_whitespaces"
-          value="false"/>
+          value="true"/>
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/sp_cleanup.remove_trailing_whitespaces_all"
@@ -1884,7 +1872,7 @@
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/sp_cleanup.sort_members"
-          value="true"/>
+          value="false"/>
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/sp_cleanup.sort_members_all"
@@ -1908,7 +1896,7 @@
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/sp_cleanup.use_parentheses_in_expressions"
-          value="false"/>
+          value="true"/>
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/sp_cleanup.use_this_for_non_static_field_access"
@@ -1962,7 +1950,7 @@
           value="true"/>
       <setup:PreferenceTask
           key="/instance/org.eclipse.jdt.ui/editor_folding_default_methods"
-          value="true"/>    
+          value="true"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -1990,9 +1978,24 @@
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.wst.xml.core/lineWidth"
-          value="80"/>
+          value="120"/>
     </setupTask>
-    
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.jdt.core">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.targetPlatform"
+          value="1.7"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.compliance"
+          value="1.7"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.source"
+          value="1.7"/>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="maven:MavenImportTask"

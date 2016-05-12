@@ -109,6 +109,16 @@
         name="org.sonarlint.eclipse.feature.feature.group"/>
     <requirement
         name="org.sonarlint.eclipse.jdt.feature.feature.group"/>
+    <requirement
+        name="org.springframework.ide.eclipse.feature.feature.group"/>
+    <requirement
+        name="org.springframework.ide.eclipse.aop.feature.feature.group"/>
+    <requirement
+        name="org.springframework.ide.eclipse.autowire.feature.feature.group"/>
+    <requirement
+        name="org.springframework.ide.eclipse.maven.feature.feature.group"/>
+    <requirement
+        name="org.springframework.ide.eclipse.security.feature.feature.group"/>
     <repository
         url="https://fabioz.github.com/startexplorer/update/"/>
     <repository
@@ -131,6 +141,8 @@
         url="http://dl.bintray.com/ajermakovics/InstaSearch/"/>
     <repository
         url="http://eclipse.sonarlint.org/"/>
+    <repository
+        url="http://dist.springsource.com/release/TOOLS/update/e4.5/"/>
     <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
   </setupTask>
   <setupTask
@@ -2080,10 +2092,6 @@
     <description>The dynamic working sets for ${scope.project.label}</description>
   </setupTask>
   <setupTask
-      xsi:type="projects:ProjectsBuildTask"
-      refresh="true"
-      clean="true"/>
-  <setupTask
       xsi:type="launching:LaunchTask"
       id="shared-build"
       launcher="shared">
@@ -2101,6 +2109,10 @@
       launcher="server">
     <description>Launches the Maven &quot;server&quot; build</description>
   </setupTask>
+  <setupTask
+      xsi:type="projects:ProjectsBuildTask"
+      refresh="true"
+      clean="true"/>
   <stream name="develop"/>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"

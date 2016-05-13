@@ -1436,7 +1436,8 @@
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.ui.editors/spacesForTabs"
           value="true"/>
-      <setup:PreferenceTask
+      <setupTask
+          xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.javadoc"
           value="true"
           xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
@@ -1945,10 +1946,12 @@
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.compare/org.eclipse.compare.IgnoreWhitespace"
           value="true"/>
-      <setup:PreferenceTask
+      <setupTask
+          xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/editor_folding_default_innertypes"
           value="true"/>
-      <setup:PreferenceTask
+      <setupTask
+          xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/editor_folding_default_methods"
           value="true"/>
     </setupTask>

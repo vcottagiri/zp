@@ -45,7 +45,7 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.setup"
-        value="=true"
+        value="=false"
         vm="true"/>
     <version
         name="mars.1"

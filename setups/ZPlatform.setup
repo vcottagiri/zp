@@ -15,8 +15,8 @@
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
     xmlns:workingsets="http://www.eclipse.org/oomph/workingsets/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/launching/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Launching.ecore http://www.eclipse.org/oomph/setup/maven/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Maven.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore http://www.eclipse.org/oomph/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/WorkingSets.ecore"
-    name="zplatform"
-    label="ZPlatform">
+    name="zPlatform"
+    label="zPlatform">
   <setupTask
       xsi:type="jdt:JRETask"
       version="JavaSE-1.7"
@@ -1954,6 +1954,14 @@
         name="org.eclipse.wst.xml.core">
       <setupTask
           xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.wst.xml.core/formatCommentText"
+          value="false"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.wst.xml.core/indentationChar"
+          value="space"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.wst.xml.core/indentationSize"
           value="4"/>
       <setupTask
@@ -2032,7 +2040,7 @@
   <setupTask
       xsi:type="setup.workingsets:WorkingSetTask">
     <workingSet
-        name="ZPlatform DSL">
+        name="zPlatform DSL">
       <predicate
           xsi:type="predicates:AndPredicate">
         <operand
@@ -2044,7 +2052,7 @@
       </predicate>
     </workingSet>
     <workingSet
-        name="ZPlatform Runtime">
+        name="zPlatform Runtime">
       <predicate
           xsi:type="predicates:AndPredicate">
         <operand
@@ -2059,7 +2067,7 @@
       </predicate>
     </workingSet>
     <workingSet
-        name="ZPlatform Workbench">
+        name="zPlatform Workbench">
       <predicate
           xsi:type="predicates:AndPredicate">
         <operand
@@ -2101,5 +2109,5 @@
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='com.github']"/>
-  <description>ZPlatform provides very cool stuff</description>
+  <description>zPlatform provides very cool stuff</description>
 </setup:Project>

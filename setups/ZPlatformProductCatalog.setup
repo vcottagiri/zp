@@ -24,11 +24,11 @@
   <product name="zplatform"
       label="zplatform">
     <annotation
-          source="http://www.eclipse.org/oomph/setup/BrandingInfo">
-        <detail
-            key="siteURI">
-          <value>https://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/mars1</value>
-        </detail>
+        source="http://www.eclipse.org/oomph/setup/BrandingInfo">
+      <detail
+          key="siteURI">
+        <value>https://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/neonr</value>
+      </detail>
     </annotation>
     <setupTask
         xsi:type="setup:InstallationTask"
@@ -47,110 +47,68 @@
         option="-Doomph.setup"
         value="=false"
         vm="true"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="workspace.location"
+        value="${installation.location}/ws"
+        storageURI="scope://Installation"/>
+    <setupTask
+        xsi:type="setup:ResourceCreationTask"
+        content="MAX_RECENT_WORKSPACES=5&#xA;RECENT_WORKSPACES=${workspace.location|property}&#xA;RECENT_WORKSPACES_PROTOCOL=3&#xA;SHOW_WORKSPACE_SELECTION_DIALOG=false&#xA;eclipse.preferences.version=1&#xA;"
+        targetURL="configuration:/.settings/org.eclipse.ui.ide.prefs"
+        encoding="UTF-8"/>
     <version
-        name="mars.1"
-        label="Mars.1"
-        requiredJavaVersion="1.7">
+        name="latest"
+        label="Neon"
+        requiredJavaVersion="1.8">
       <annotation
           source="http://www.eclipse.org/oomph/setup/BrandingInfo">
         <detail
             key="siteURI">
-          <value>https://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/mars1</value>
+          <value>https://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/neonr</value>
         </detail>
       </annotation>
       <setupTask
           xsi:type="setup.p2:P2Task"
-          label="Eclipse DSL Tools (Mars.1)">
+          label="DSL Tools">
         <requirement
             name="epp.package.dsl"
-            versionRange="[4.5.0,4.6.0)"/>
+            versionRange="[4.6.0,5.0.0)"/>
         <requirement
             name="org.eclipse.platform.feature.group"
-            versionRange="[4.5.0,4.6.0)"/>
+            versionRange="[4.6.0,5.0.0)"/>
         <requirement
             name="org.eclipse.rcp.feature.group"
-            versionRange="[4.5.0,4.6.0)"/>
+            versionRange="[4.6.0,5.0.0)"/>
         <requirement
             name="org.eclipse.jdt.feature.group"
-            versionRange="[3.11.0,3.12.0)"/>
+            versionRange="[3.12.0,4.0.0)"/>
         <requirement
             name="org.eclipse.pde.feature.group"
-            versionRange="[3.11.0,3.12.0)"/>
+            versionRange="[3.12.0,4.0.0)"/>
         <requirement
             name="org.eclipse.emf.ecore.xcore.sdk.feature.group"/>
         <requirement
-            name="org.eclipse.m2e.feature.feature.group"/>
+            name="org.eclipse.emf.mwe2.language.sdk.feature.group"/>
         <requirement
-            name="org.sonatype.tycho.m2e.feature.feature.group"/>
-        <requirement
-            name="org.jboss.tools.m2e.jdt.feature.feature.group"/>
+            name="org.eclipse.emf.sdk.feature.group"/>
         <requirement
             name="org.eclipse.xtext.sdk.feature.group"/>
-        <requirement
-            name="org.eclipse.oomph.setup.feature.group" versionRange="1.4.0"/>
         <repository
-            url="http://download.eclipse.org/technology/epp/packages/mars"/>
+            url="http://download.eclipse.org/technology/epp/packages/neon"/>
         <repository
-            url="http://download.eclipse.org/releases/mars/201510021000/"/>
-        <repository
-            url="http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-tycho/0.9.0/N/0.9.0.201412222151/"/>
-        <repository
-            url="http://download.jboss.org/jbosstools/updates/m2e-extensions/m2e-jdt-compiler/"/>
-        <repository
-            url="http://download.eclipse.org/oomph/updates/latest/"/>
-        <repository
-            url="http://dist.springsource.com/release/TOOLS/update/e4.5/"/>
+            url="http://download.eclipse.org/releases/neon/201606221000"/>
         <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
       </setupTask>
-    </version>
       <setupTask
-          xsi:type="setup:VariableTask"
-          name="workspace.location"
-          value="${installation.location}/ws"
-          storageURI="scope://Installation"/>
-      <setupTask
-          xsi:type="setup:ResourceCreationTask"
-          content="MAX_RECENT_WORKSPACES=5&#xA;RECENT_WORKSPACES=${workspace.location|property}&#xA;RECENT_WORKSPACES_PROTOCOL=3&#xA;SHOW_WORKSPACE_SELECTION_DIALOG=false&#xA;eclipse.preferences.version=1&#xA;"
-          targetURL="configuration:/.settings/org.eclipse.ui.ide.prefs"
-          encoding="UTF-8"/>
-      <!-- setupTask
-          xsi:type="setup:VariableTask"
-          name="mvn.installation.location"
-          defaultValue="/software/maven/apache-maven-3.3.9"
-          type="FOLDER"
-          label="Maven Installation Folder">
-        <description>Maven Runtime Name : example apache-maven-3.2.3</description>
+          xsi:type="setup.p2:P2Task"
+          label="Oomph">
+        <requirement
+            name="org.eclipse.oomph.setup.feature.group"/>
+        <repository
+            url="${oomph.update.url}"/>
+        <description></description>
       </setupTask>
-      <setupTask
-          xsi:type="setup:VariableTask"
-          name="mvn.userSettingsFile.location"
-          defaultValue="/Users/USER_NAME/.m2/settings-2x.xml"
-          type="FILE"
-          label="Maven User Settings">
-        <description>Maven Runtime Name : example apache-maven-3.2.3</description>
-      </setupTask>
-      <setupTask
-        xsi:type="setup:CompoundTask"
-        name="org.eclipse.m2e.core">
-          <setupTask
-              xsi:type="setup:PreferenceTask"
-              key="/instance/org.eclipse.m2e.core/eclipse.m2.defaultRuntime"
-              value="zp-apache-maven"/>
-          <setupTask
-              xsi:type="setup:PreferenceTask"
-              key="/instance/org.eclipse.m2e.core/eclipse.m2.runtimesNodes/zp-apache-maven/location"
-              value="${mvn.installation.location|file}"/>
-          <setupTask
-              xsi:type="setup:PreferenceTask"
-              key="/instance/org.eclipse.m2e.core/eclipse.m2.runtimesNodes/zp-apache-maven/type"
-              value="EXTERNAL"/>
-          <setupTask
-              xsi:type="setup:PreferenceTask"
-              key="/instance/org.eclipse.m2e.core/eclipse.m2.userSettingsFile"
-              value="${mvn.userSettingsFile.location|file}"/ -->
-        </setupTask>
     </version>
-    <description>The essential tools for Zafin Java and DSL developers, including a Java &amp; Xtend IDE, a DSL Framework (Xtext), a Git client, XML Editor, and Maven integration.</description>
   </product>
-  <description>The catalog of products available as &lt;a href='https://www.eclipse.org/downloads/'>packaged downloads&lt;/a> at Eclipse.org.</description>
 </setup:ProductCatalog>

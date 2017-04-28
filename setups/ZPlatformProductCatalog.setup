@@ -50,7 +50,7 @@
     <version
         name="mars.1"
         label="Mars.1"
-        requiredJavaVersion="1.7">
+        requiredJavaVersion="1.8">
       <annotation
           source="http://www.eclipse.org/oomph/setup/BrandingInfo">
         <detail

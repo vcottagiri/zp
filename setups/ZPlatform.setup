@@ -24,11 +24,24 @@
     <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
   </setupTask>
   <setupTask
+      xsi:type="jdt:JRETask"
+      version="JavaSE-1.8"
+      location="${jre.location-1.8}">
+    <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
+  </setupTask>
+  <setupTask
       xsi:type="setup:EclipseIniTask"
       option="-Xmx"
       value="2048m"
       vm="true">
     <description>Set the heap space needed to work with the projects of ${scope.project.label}</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-XX:MaxMetaspaceSize"
+      value="256m"
+      vm="true">
+    <description>Set the metaspace space needed to work with the projects of ${scope.project.label}</description>
   </setupTask>
   <setupTask
       xsi:type="setup:ResourceCreationTask"
@@ -55,7 +68,7 @@
       xsi:type="setup.p2:P2Task">
     <requirement
         name="org.eclipse.xtext.sdk.feature.group"
-        versionRange="2.8.2"/>
+        versionRange="2.8.4"/>
     <requirement
         name="org.eclipse.emf.ecore.xcore.sdk.feature.group"/>
     <requirement
@@ -79,7 +92,7 @@
     <repository
         url="http://download.jboss.org/jbosstools/updates/m2e-extensions/m2e-jdt-compiler/"/>
     <repository
-        url="http://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.8.2/"/>
+        url="http://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.8.4/"/>
     <description>Install the tools needed in the IDE to work with the source code for ${scope.project.label}</description>
   </setupTask>
   <setupTask
@@ -91,8 +104,6 @@
         name="name.schedenig.eclipse.grepconsole.feature.group"/>
     <requirement
         name="edu.umd.cs.findbugs.plugin.eclipse.feature.group"/>
-    <requirement
-        name="net.sf.eclipsecs.feature.group"/>
     <requirement
         name="com.mountainminds.eclemma.feature.feature.group"/>
     <requirement
@@ -126,8 +137,6 @@
     <repository
         url="http://findbugs.cs.umd.edu/eclipse"/>
     <repository
-        url="http://eclipse-cs.sf.net/update"/>
-    <repository
         url="http://update.eclemma.org/"/>
     <repository
         url="http://eclipse-jetty.github.io/update/"/>
@@ -151,7 +160,7 @@
     <requirement
         name="de.cau.cs.kieler.klighd.sdk.feature.feature.group"/>
     <repository
-        url="http://rtsys.informatik.uni-kiel.de/~kieler/updatesite/"/>
+        url="https://zafindev.com:9443/artifactory/zafin-p2-2x/~kieler/updatesite/release_pragmatics_2015-02/"/>
   </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"

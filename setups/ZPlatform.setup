@@ -131,7 +131,7 @@
     <requirement
         name="org.springframework.ide.eclipse.security.feature.feature.group"/>
     <repository
-        url="https://fabioz.github.com/startexplorer/update/"/>
+        url="https://fabioz.github.io/startexplorer/update/"/>
     <repository
         url="http://eclipse.schedenig.name"/>
     <repository

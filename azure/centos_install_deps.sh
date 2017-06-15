@@ -17,7 +17,7 @@ echo "MACs hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-128-
 echo "KexAlgorithms curve25519-sha256@libssh.org" >> /etc/ssh/sshd_config
 systemctl restart sshd
 
-echo "Configuring docker device marrer"
+echo "Configuring docker device mapper"
 DOCKERVG=$( parted -m /dev/sda print all 2>/dev/null | grep unknown | grep /dev/sd | head -1 | cut -d':' -f1 )
 echo "DEVS=${DOCKERVG}" >> /etc/sysconfig/docker-storage-setup
 echo "VG=docker-vg" >> /etc/sysconfig/docker-storage-setup
